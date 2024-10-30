@@ -273,14 +273,13 @@ export function showModal(gameMode, winner, tournamentId) {
 function updateModalContentForTournament(winner, tournamentId) {
     const resultMessage = document.getElementById('resultMessage');
     const gameMessage = document.getElementById('game-message');
-    const playAgainButton = document.getElementById('playAgainButton');
     const returnToHomeButton = document.getElementById('returnToHome');
 
     resultMessage.textContent = 'Resultado';
     gameMessage.textContent = `Vencedor: ${winner}`;
-    playAgainButton.textContent = 'Voltar ao torneio';
+    returnToHomeButton.textContent = 'Voltar ao torneio';
  
-    playAgainButton.onclick = () => {
+    returnToHomeButton.onclick = () => {
         const modalElement = document.getElementById('displayWinnerMessageModal');
         const modalInstance = bootstrap.Modal.getInstance(modalElement);
         modalInstance.hide();

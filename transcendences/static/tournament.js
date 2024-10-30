@@ -11,10 +11,16 @@ export function attachFormSubmitListener() {
 			return element.innerHTML;
 		}
 
+		// const formData = new FormData(form);
+		// const data = {
+		// 	name: sanitizeInput(formData.get('tournamentName')),
+		// 	players: formData.getAll('player').map(player => sanitizeInput(player))
+		// };
+
 		const formData = new FormData(form);
 		const data = {
-			name: sanitizeInput(formData.get('tournamentName')),
-			players: formData.getAll('player').map(player => sanitizeInput(player))
+			name: formData.get('tournamentName'),
+			players: formData.getAll('player')
 		};
 
         try {

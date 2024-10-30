@@ -35,7 +35,7 @@ services:
       dockerfile: Dockerfile
     container_name: "transcendence_web"
     image: transcendence/web:latest
-    env_file: env.development
+    env_file: .env
     volumes:
       - ./transcendences:/app
       - ./requirements.txt:/app/requirements.txt

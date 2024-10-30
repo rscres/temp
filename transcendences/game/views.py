@@ -55,6 +55,7 @@ def game_room(request, room_name):
         'room_name': room_name
     })
 
+@ajax_login_required
 @csrf_protect
 def create_tournament(request):
 	if request.method == 'POST':
