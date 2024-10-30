@@ -326,12 +326,12 @@ async function showModalProfileList() {
             const internDiv = document.createElement('div');
             
             internDiv.classList.add('d-flex');
-            
+            internDiv.classList.add('align-items-center');
             internDiv.classList.add('justify-content-between');
 
             const is_online = document.createElement('div');
-            is_online.style.width = '20px';
-            is_online.style.height = '20px';
+            is_online.style.width = '10px';
+            is_online.style.height = '10px';
             is_online.style.borderRadius = '50%';
             is_online.style.display = 'inline-block';
             is_online.style.backgroundColor = 'red';
@@ -340,7 +340,15 @@ async function showModalProfileList() {
                 is_online.style.backgroundColor = 'green';
         
             internDiv.appendChild(is_online);
-            internDiv.innerText = `${user.username}`
+            internDiv.insertBefore(is_online, internDiv.firstChild);
+
+            const username = document.createElement('span');
+            username.innerText = `${user.username}`;
+            internDiv.appendChild(username);
+
+            const email = document.createElement('span');
+            email.innerText = `${user.email}`;
+            internDiv.appendChild(email);
 
             const button = document.createElement('button');
             
@@ -358,13 +366,6 @@ async function showModalProfileList() {
                 button.innerText = "+";
                 button.addEventListener('click', () => { addNewFriend(user, button) } );
             }
-            
-            const span = document.createElement('span')
-            
-            span.innerText = `${user.username}`
-            
-            internDiv.appendChild(span)
-            
 
             internDiv.appendChild(button);
 

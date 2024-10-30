@@ -1,5 +1,5 @@
 
-all: build upd
+all: cleandb build upd
 
 build:
 	docker compose build
@@ -15,6 +15,9 @@ test:
 
 down:
 	docker compose down
+
+cleandb:
+	sudo rm -rf postgres/data
 
 fclean: down
 	@echo "Cleaning..."
