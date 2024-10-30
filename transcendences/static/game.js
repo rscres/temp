@@ -42,12 +42,12 @@ class MovementStrategy {
         this.paddleHeight = 100;
         this.paddleWidth = 10;
         this.ballRadius = 8;
-        this.paddleSpeed = 3;
+        this.paddleSpeed = 5;
 
         // Define initial speeds
-        this.initialSpeed = 1; // Speed when the ball resets
-        this.collisionSpeedX = 2; // Horizontal speed after paddle collision
-        this.maxBallSpeed = 3;    // Maximum speed of the ball
+        this.initialSpeed = 3; // Speed when the ball resets
+        this.collisionSpeedX = 4; // Horizontal speed after paddle collision
+        this.maxBallSpeed = 5;    // Maximum speed of the ball
 
         this.leftPaddle = {
             y: this.canvas.height / 2 - this.paddleHeight / 2,
@@ -61,7 +61,7 @@ class MovementStrategy {
 
         this.ball = {
             pos: new THREE.Vector2(this.canvas.width / 2, this.canvas.height / 2),
-            speed: new THREE.Vector2(2, 0),
+            speed: new THREE.Vector2(3, 0),
         };
 
         this.scoreDigits = {
@@ -189,11 +189,13 @@ class MovementStrategy {
 
     loadFont() {
         const loader = new FontLoader();
-        loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', (font) => {
+        loader.load('/static/fonts/Cousine_Nerd_Font_Propo_Regular.json', (font) => {
             this.font = font;
             this.fontLoaded = true; // Set flag to indicate font is loaded
             this.addPlayersName();
             this.updateScoreboard();
+        }, undefined, (error) => {
+            console.error('Erro ao carregar a fonte:', error);
         });
     }
 

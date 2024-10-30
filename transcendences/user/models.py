@@ -89,15 +89,15 @@ class User(models.Model):
     def create(**kwargs):
 
       # Validate field lengths
-      if len(kwargs.get('username')) > 30:
+      if kwargs.get('username') and len(kwargs.get('username')) > 30:
           raise Exception('Nome de usuário não pode ser maior que 30 caracteres.')
-      if len(kwargs.get('email')) > 30:
+      if kwargs.get('email') and len(kwargs.get('email')) > 30:
           raise Exception('Email não pode ser maior que 30 caracteres.')
       if kwargs.get('first_name') and len(kwargs.get('first_name')) > 30:
           raise Exception('Primeiro nome não pode ser maior que 30 caracteres.')
       if kwargs.get('last_name') and len(kwargs.get('last_name')) > 30:
           raise Exception('Último nome não pode ser maior que 30 caracteres.')
-      if len(kwargs.get('password')) > 30:
+      if kwargs.get('password') and len(kwargs.get('password')) > 30:
           raise Exception('Senha não pode ser maior que 30 caracteres.')
 
       if DjangoUser.objects.filter(username=kwargs.get('username')).exists():
