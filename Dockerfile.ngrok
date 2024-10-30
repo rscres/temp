@@ -2,4 +2,4 @@ FROM wernight/ngrok
 
 ENV NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
 
-CMD ngrok http web:8000
+CMD [ "ngrok", "http", "--domain", "quality-grown-dassie.ngrok-free.app", "web:8000" ]

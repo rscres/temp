@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3nny$q-t6*frjd7j7&4mweeb0-bb^+x-o4fz)l0@h8j@n@tqkl'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,8 +37,8 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Tamanho de todos os campos do registro com 30 caracteres + arquivo de exatos 5MB
 DATA_UPLOAD_MAX_MEMORY_SIZE = 6990762
 
-UID='u-s4t2ud-44c91892f89e696d8bbdaaea10be0978b4ac76e67496178d5b215404f3132edf'
-SECRET='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'
+UID = os.environ.get('UID')
+SECRET = os.environ.get('SECRET')
 
 # Application definition
 

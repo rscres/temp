@@ -48,23 +48,6 @@ services:
     networks:
       - app-network
 
-  test:
-    build:
-      context: .
-      dockerfile: Dockerfile_test
-    container_name: "transcendence_web_test"
-    env_file: env.test
-    image: transcendenceTest/web:latest
-    command: python -m venv env  
-    volumes:
-      - ./transcendences:/app
-      - ./requirements.txt:/app/requirements.txt 
-    depends_on:
-      - db
-      - redis
-    networks:
-      - app-network
-
 networks:
   app-network:
 

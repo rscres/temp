@@ -58,12 +58,12 @@ def update_view(request):
 
 def login_ft(request):
     protocol = request.scheme
-    port     = '%3A8443' if protocol == "https" else '%3A8000'
+    port     = '443' if protocol == "https" else '8000'
     host     =  request.get_host().split(':')[0]
 
     params   = {
-        'client_id': settings.UID, 
-        'redirect_uri': f'{protocol}://0.0.0.0:8000/api/user/callback', 
+        'client_id': settings.UID,
+        'redirect_uri': f'{protocol}://{host}:{port}/api/user/callback', 
         'response_type':'code' 
     }
 
@@ -72,7 +72,7 @@ def login_ft(request):
     return redirect(api_url)
 
 def handle_42_callback(request, code):
-	port         = '8443' if request.scheme == 'https' else '8000'
+	port         = '443' if request.scheme == 'https' else '8000'
 	host         = request.get_host().split(':')[0]
 	redirect_uri = request.scheme + f"://{host}:" + port + '/api/user/callback'
 	token_url    = "https://api.intra.42.fr/oauth/token"
