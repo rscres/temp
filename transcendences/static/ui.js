@@ -286,7 +286,6 @@ function updateModalContentForTournament(winner, tournamentId) {
         window.history.pushState({}, '', `/tournament?tournament_id=${tournamentId}`);
         displaySection(`/tournament?tournament_id=${tournamentId}`);
     };
-    returnToHomeButton.style.display = 'none';
 }
 
 async function showModalProfileList() {
