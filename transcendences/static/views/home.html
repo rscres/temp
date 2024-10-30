@@ -1,0 +1,63 @@
+<section id="home" class="text-center">
+    <h1 class="display-4 mb-4">Bem-vindo ao Pong Game Hub</h1>
+    <p class="lead mb-4">Escolha seu modo de jogo e comece a diversão!</p>
+
+    <div class="row justify-content-center g-4">
+        <!-- Modo Local -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Modo Local</h5>
+                    <p class="card-text">Jogue com um amigo no mesmo computador!</p>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#localGameModal">
+                        Jogar Local
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modo Online -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Modo Online</h5>
+                    <p class="card-text">Desafie jogadores de todo o mundo!</p>
+					<button class="btn btn-primary" id="joinOnlineRoomButton">
+						Jogar Online
+					</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- IA -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Partida Rápida</h5>
+                    <p class="card-text">Jogar contra IA!</p>
+                    <button class="btn btn-primary" data-route="game-canva?mode=ia">
+                        Jogar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Local -->
+<div class="modal fade" id="localGameModal" tabindex="-1" aria-modal="true" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modo Local</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" id="local-vs-friend">Jogar com Amigo</button>
+                    <button class="btn btn-primary" data-route="local-tournament">Torneio</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
